@@ -25,10 +25,12 @@ fn main() {
         if let Err(_err) = TcpStream::connect(origin_server) {
             println!("Please re-start the origin server");
             exit(1);
-        } else {
-            println!("Unable to bind to specified proxy port");
-            exit(1);
         }
+
+        println!("Running on addr: {}, port: {}", addr, port);
+    } else {
+        println!("Unable to bind to specified proxy port");
+        exit(1);
     }
 
     // Listen for incoming connections from proxy_server
